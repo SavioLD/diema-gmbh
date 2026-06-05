@@ -19,6 +19,8 @@
     street: "Sandbühlstr. 8",
     city: "78606 Seitingen-Oberflacht",
     region: "Baden-Württemberg",
+    notfallLabel: "0173 958 9146",
+    notfallHref: "+491739589146",
   };
 
   /* -------- Navigationsstruktur -------- */
@@ -194,6 +196,7 @@
               '<li>' + ICON.pin + " " + SITE.street + ", " + SITE.city + "</li>" +
               '<li><a href="tel:' + SITE.phoneHref + '">' + ICON.phone + " " + SITE.phoneLabel + "</a></li>" +
               '<li><a href="mailto:' + SITE.email + '">' + ICON.mail + " " + SITE.email + "</a></li>" +
+              '<li><a href="tel:' + SITE.notfallHref + '" style="color:#FF9A9E">' + ICON.phone + " 24-Std-Notfall: " + SITE.notfallLabel + "</a></li>" +
             "</ul>" +
           "</div>" +
           cols +
