@@ -4,16 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Automatisierungs-ROI-Rechner — DIEMA GmbH · SM-Stahl</title>
-<meta name="description" content="Berechnen Sie in 2 Minuten, was manuelles Schleifen, Polieren oder Entgraten Sie pro Jahr und pro Teil kostet: Einsparpotenzial, Kosten je Teil, Amortisationszeit und Automatisierungs-Score inklusive PDF-Auswertung." />
+<meta name="description" content="In 1 Minute durchklicken: Was kostet Sie manuelles Schleifen, Polieren oder Entgraten? Erste Einschätzung mit Score, Einsparpotenzial und Amortisation — die vollständige Auswertung erhalten Sie als PDF." />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="https://www.diemagmbh.de/rechner.html" />
 <meta property="og:title" content="Automatisierungs-ROI-Rechner — DIEMA GmbH" />
-<meta property="og:description" content="Was kostet Sie Handarbeit Jahr für Jahr und je Teil? Einsparpotenzial, Amortisation & Score in 2 Minuten." />
+<meta property="og:description" content="Durchklicken statt rechnen: Score, Einsparpotenzial & Amortisation — vollständige Auswertung als PDF." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="rechner.css" />
+<link rel="stylesheet" href="styles.css?v=8" />
+<link rel="stylesheet" href="rechner.css?v=8" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -31,29 +31,30 @@
   <header class="page-hero">
     <div class="shell">
       <span class="eyebrow">Automatisierungs-ROI-Rechner</span>
-      <h1>Was kostet Sie Handarbeit — pro Jahr und pro Teil?</h1>
-      <p class="lead">Schleifen, Polieren und Entgraten von Hand bindet teure Fachkräfte, erzeugt Ausschuss und bremst Ihre Kapazität. Beantworten Sie ein paar Fragen und sehen Sie sofort Ihre Stückkosten heute vs. automatisiert, das Einsparpotenzial, die Amortisationszeit und Ihren Automatisierungs-Score — auf Wunsch als PDF.</p>
+      <h1>Was kostet Sie Handarbeit — Jahr für Jahr?</h1>
+      <p class="lead">Klicken Sie sich in einer Minute durch ein paar Fragen. Sie erhalten sofort eine erste Einschätzung — und auf Wunsch die vollständige Auswertung mit allen Kennzahlen als PDF.</p>
     </div>
   </header>
 
   <section class="section">
     <div class="shell">
-      <div class="calc-wrap" id="calcTop">
+      <div class="wizard-wrap">
 
         <!-- ======= WIZARD ======= -->
         <form class="wizard" id="wizard" novalidate>
           <ol class="wizard__progress" id="progress">
             <li data-step="1" aria-current="step"><span>1</span><span class="lbl">Prozess</span></li>
-            <li data-step="2"><span>2</span><span class="lbl">Team &amp; Stückzahl</span></li>
-            <li data-step="3"><span>3</span><span class="lbl">Qualität</span></li>
+            <li data-step="2"><span>2</span><span class="lbl">Ziel</span></li>
+            <li data-step="3"><span>3</span><span class="lbl">Team</span></li>
+            <li data-step="4"><span>4</span><span class="lbl">Qualität</span></li>
           </ol>
 
           <div class="wizard__body">
 
-            <!-- STEP 1 -->
+            <!-- STEP 1: Prozess -->
             <fieldset class="step is-active" data-step="1" style="border:0;padding:0;margin:0">
               <legend style="padding:0"><h2>Welchen Prozess möchten Sie automatisieren?</h2></legend>
-              <p class="step__hint">Wählen Sie das Verfahren, das Sie heute überwiegend von Hand erledigen.</p>
+              <p class="step__hint">Tippen Sie auf eine Kachel — es geht automatisch weiter.</p>
               <div class="choice-grid" role="radiogroup" aria-label="Prozess">
                 <label class="choice"><input type="radio" name="prozess" value="schleifen" checked>
                   <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/></svg><span class="choice__t">Schleifen</span><span class="choice__d">Bänder &amp; Kontaktscheiben</span></span></label>
@@ -66,9 +67,12 @@
                 <label class="choice"><input type="radio" name="prozess" value="gemischt">
                   <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="choice__t">Gemischt</span><span class="choice__d">mehrere Verfahren</span></span></label>
               </div>
+            </fieldset>
 
-              <h2 style="margin-top:2rem">Ihr wichtigstes Ziel</h2>
-              <p class="step__hint">Damit gewichten wir Ihre Auswertung passend.</p>
+            <!-- STEP 2: Ziel -->
+            <fieldset class="step" data-step="2" style="border:0;padding:0;margin:0">
+              <legend style="padding:0"><h2>Was ist Ihr wichtigstes Ziel?</h2></legend>
+              <p class="step__hint">Tippen Sie auf eine Kachel — es geht automatisch weiter.</p>
               <div class="choice-grid" role="radiogroup" aria-label="Ziel">
                 <label class="choice"><input type="radio" name="ziel" value="kapazitaet" checked>
                   <span class="choice__box"><span class="choice__t">Kapazität erhöhen</span><span class="choice__d">mehr Durchsatz</span></span></label>
@@ -81,13 +85,13 @@
               </div>
             </fieldset>
 
-            <!-- STEP 2 -->
-            <fieldset class="step" data-step="2" style="border:0;padding:0;margin:0">
+            <!-- STEP 3: Team & Stückzahl -->
+            <fieldset class="step" data-step="3" style="border:0;padding:0;margin:0">
               <legend style="padding:0"><h2>Ihr Team &amp; Ihre Stückzahl</h2></legend>
               <p class="step__hint">Richtwerte genügen — Sie können jeden Wert anpassen.</p>
 
               <div class="field">
-                <label for="mitarbeiter">Mitarbeiter in der Oberflächenbearbeitung <span class="sub">(gesamt, alle Schichten)</span></label>
+                <label for="mitarbeiter">Mitarbeiter in der Oberflächenbearbeitung <span class="sub">(gesamt)</span></label>
                 <div class="num" style="max-width:200px">
                   <button type="button" aria-label="weniger" data-step-btn="mitarbeiter" data-dir="-1">–</button>
                   <input class="input" id="mitarbeiter" type="number" inputmode="numeric" min="1" max="200" value="4" />
@@ -130,10 +134,10 @@
               </div>
             </fieldset>
 
-            <!-- STEP 3 -->
-            <fieldset class="step" data-step="3" style="border:0;padding:0;margin:0">
+            <!-- STEP 4: Qualität -->
+            <fieldset class="step" data-step="4" style="border:0;padding:0;margin:0">
               <legend style="padding:0"><h2>Qualität &amp; Personal</h2></legend>
-              <p class="step__hint">Diese Angaben machen Ihre Ausschuss- und Personalkosten konkret.</p>
+              <p class="step__hint">Letzter Schritt — diese Angaben machen Ihre Kosten konkret.</p>
 
               <div class="field">
                 <label for="ausschuss">Ausschuss- &amp; Nacharbeitsquote heute</label>
@@ -145,7 +149,7 @@
               </div>
 
               <div class="field">
-                <label for="materialwert">Ø Materialwert je Teil <span class="sub">(optional — macht die Ausschusskosten konkret)</span></label>
+                <label for="materialwert">Ø Materialwert je Teil <span class="sub">(optional)</span></label>
                 <div class="input-row">
                   <input class="input" id="materialwert" type="number" inputmode="numeric" min="0" max="100000" value="0" />
                   <span class="input-suffix">€ / Teil</span>
@@ -160,11 +164,6 @@
                 </div>
                 <div class="range-legend"><span>sehr leicht</span><span>kaum möglich</span></div>
               </div>
-
-              <div class="notice notice--soft">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-                <p class="mb-0">Schwer zu besetzende Stellen erhöhen Ihren wirtschaftlichen Schaden — Automatisierung entschärft Ihren Personalengpass spürbar.</p>
-              </div>
             </fieldset>
 
             <!-- NAV -->
@@ -176,36 +175,17 @@
             </div>
           </div>
         </form>
-
-        <!-- ======= LIVE PANEL ======= -->
-        <aside class="result-panel" aria-label="Live-Vorschau Ihrer Auswertung">
-          <h3>Ihre Live-Vorschau</h3>
-          <div class="gauge">
-            <svg viewBox="0 0 220 132" width="200" role="img" aria-label="Automatisierungs-Score">
-              <path d="M16 120 A92 92 0 0 1 204 120" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="16" stroke-linecap="round"/>
-              <path id="gaugeArcLive" d="M16 120 A92 92 0 0 1 204 120" fill="none" stroke="#7BE3F3" stroke-width="16" stroke-linecap="round" stroke-dasharray="295" stroke-dashoffset="295"/>
-              <text class="val" id="gaugeValLive" x="110" y="104" text-anchor="middle" fill="#fff" font-size="44">–</text>
-              <text x="110" y="124" text-anchor="middle" fill="#AFCDD6" font-size="12">Automatisierungs-Score</text>
-            </svg>
-          </div>
-          <div class="kpi"><span class="kpi__label">Einsparpotenzial / Jahr</span><span class="kpi__val good" id="kpiSaveLive" aria-live="polite">– €</span></div>
-          <div class="kpi"><span class="kpi__label">Ersparnis je Teil</span><span class="kpi__val good" id="kpiPerPartLive">– €</span></div>
-          <div class="kpi"><span class="kpi__label">Amortisation</span><span class="kpi__val" id="kpiPaybackLive">– Mon.</span></div>
-          <div class="kpi"><span class="kpi__label">Schaden in 3 Jahren</span><span class="kpi__val danger" id="kpiSchadenLive">– €</span></div>
-          <a class="btn btn--light btn--block panel-cta" id="panelCta" href="#ergebnis">Vollständige Auswertung</a>
-          <p class="panel-note">Unverbindlicher Richtwert. Detailanalyse kostenlos durch DIEMA.</p>
-        </aside>
       </div>
     </div>
   </section>
 
-  <!-- ======= VOLLSTÄNDIGE ERGEBNISSE ======= -->
+  <!-- ======= ERGEBNIS (Teaser) + LEAD-FORM ======= -->
   <section class="section section--soft results" id="results">
-    <div class="shell" id="ergebnis">
+    <div class="shell wizard-wrap" id="ergebnis">
       <div class="result-hero">
         <div class="result-grid">
           <div class="gauge">
-            <svg viewBox="0 0 220 140" width="220" role="img" aria-label="Automatisierungs-Score">
+            <svg viewBox="0 0 220 140" width="200" role="img" aria-label="Automatisierungs-Score">
               <path d="M16 124 A94 94 0 0 1 204 124" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="18" stroke-linecap="round"/>
               <path id="gaugeArcBig" d="M16 124 A94 94 0 0 1 204 124" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"/>
               <text class="val" id="gaugeValBig" x="110" y="108" text-anchor="middle" fill="#fff" font-size="50">–</text>
@@ -213,99 +193,65 @@
             </svg>
           </div>
           <div>
-            <span class="eyebrow" style="color:#BFF0FB">Ihr Ergebnis</span>
+            <span class="eyebrow" style="color:#BFF0FB">Erste Einschätzung</span>
             <h2 style="color:#fff" id="resultHeadline">Ihr Automatisierungspotenzial</h2>
             <p style="color:#E4F4F8;font-size:1.1rem" id="resultSummary">—</p>
           </div>
         </div>
       </div>
 
-      <div class="big-tiles">
-        <div class="big-tile big-tile--good"><div class="t">Einsparpotenzial pro Jahr</div><div class="v" id="tSave">– €</div></div>
-        <div class="big-tile"><div class="t">Amortisationszeit</div><div class="v" id="tPayback">– <small>Monate</small></div></div>
-        <div class="big-tile big-tile--good"><div class="t">Netto-Einsparung über 5 Jahre</div><div class="v" id="tFive">– €</div></div>
-        <div class="big-tile big-tile--danger"><div class="t">Wirtschaftlicher Schaden bei Nicht-Automatisierung (3 J.)</div><div class="v" id="tSchaden">– €</div></div>
-        <div class="big-tile"><div class="t">Kapazitätsgewinn</div><div class="v" id="tCapacity">– %</div></div>
-        <div class="big-tile"><div class="t">Investitionsrahmen (Richtwert)</div><div class="v" id="tInvest">– €</div></div>
-        <div class="big-tile"><div class="t">Bearbeitete Teile pro Jahr</div><div class="v" id="tPartsYear">–</div></div>
-        <div class="big-tile big-tile--good"><div class="t">Kosten je Teil: heute → automatisiert</div><div class="v" id="tCostPerPart" style="font-size:1.45rem">– € → – €</div></div>
-        <div class="big-tile big-tile--good"><div class="t">Ersparnis je Teil</div><div class="v" id="tSavePerPart">– €</div></div>
+      <div class="grid grid--3 mt-4">
+        <div class="big-tile big-tile--good"><div class="t">Einsparpotenzial pro Jahr</div><div class="v" id="tSaveYear">– €</div><div class="tnote">Richtwert</div></div>
+        <div class="big-tile"><div class="t">Amortisationszeit</div><div class="v" id="tPaybackTease">– <small>Monate</small></div><div class="tnote">der Investition</div></div>
+        <div class="big-tile big-tile--good"><div class="t">Ersparnis je Teil</div><div class="v" id="tSavePartTease">– €</div><div class="tnote">heute → automatisiert</div></div>
       </div>
 
-      <div class="grid grid--2 mt-4" style="align-items:start">
-        <div class="card">
-          <h3>So entsteht Ihr Einsparpotenzial</h3>
-          <table class="breakdown">
-            <tbody>
-              <tr><td>Personalkosten Handarbeit (heute)</td><td id="bLabor">– €</td></tr>
-              <tr><td>Ausschuss &amp; Nacharbeit (heute)</td><td id="bRework">– €</td></tr>
-              <tr><td>Einsparung Personal durch Automation</td><td id="bSaveLabor">– €</td></tr>
-              <tr><td>Einsparung Ausschuss/Nacharbeit</td><td id="bSaveScrap">– €</td></tr>
-              <tr><td>– Betriebskosten Automation (Wartung, Energie)</td><td id="bOpex">– €</td></tr>
-              <tr><td>= Netto-Einsparung pro Jahr</td><td id="bNet">– €</td></tr>
-            </tbody>
-          </table>
-
-          <details class="mt-2">
-            <summary style="cursor:pointer;font-family:var(--font-head);font-weight:600;color:var(--brand-700)">Annahmen &amp; Methodik anzeigen</summary>
-            <ul class="checklist" style="margin-top:1rem" id="methodList">
-              <li>7,5 produktive Stunden je Mitarbeiter und Tag.</li>
-              <li id="mLabor">Automation übernimmt einen Teil der manuellen Arbeit (verfahrensabhängig).</li>
-              <li id="mScrap">Automation reduziert Ausschuss/Nacharbeit deutlich.</li>
-              <li>Ein Ausschussteil verursacht Materialwert + bereits investierte Bearbeitungskosten.</li>
-              <li>Betriebskosten der Anlage: ca. 9 % der Investition pro Jahr (Wartung, Energie, Verbrauch).</li>
-              <li id="mInvest">Investitionsrahmen je Roboterzelle, skaliert mit der Teamgröße.</li>
-            </ul>
-          </details>
-
-          <p class="disclaimer mt-2">Modellrechnung auf Basis branchenüblicher Richtwerte. Ersetzt keine individuelle Detailanalyse. Der tatsächliche Investitionsrahmen hängt von Bauteil, Taktzeit und Automatisierungsgrad ab.</p>
+      <!-- LEAD FORM -->
+      <div class="lead-card mt-4">
+        <div id="leadFormWrap">
+          <h3 style="margin-top:0">Vollständige Auswertung als PDF — kostenlos zuschicken lassen</h3>
+          <p class="text-muted">Mit allen Kennzahlen: Stückkosten heute vs. automatisiert, Einsparung über 5 Jahre, Kapazitätsgewinn, Investitionsrahmen und den Annahmen. Wir senden sie Ihnen direkt zu und Herr Specker meldet sich für eine unverbindliche Einschätzung.</p>
+          <form id="leadForm" novalidate>
+            <div class="lead-grid">
+              <div class="field" style="margin-bottom:0"><label for="lf-vorname">Vorname*</label><input class="input" id="lf-vorname" name="vorname" autocomplete="given-name" required></div>
+              <div class="field" style="margin-bottom:0"><label for="lf-nachname">Nachname*</label><input class="input" id="lf-nachname" name="nachname" autocomplete="family-name" required></div>
+            </div>
+            <div class="field" style="margin-top:16px;margin-bottom:0"><label for="lf-firma">Firma*</label><input class="input" id="lf-firma" name="firma" autocomplete="organization" required></div>
+            <div class="lead-grid" style="margin-top:16px">
+              <div class="field" style="margin-bottom:0"><label for="lf-email">E-Mail*</label><input class="input" id="lf-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field" style="margin-bottom:0"><label for="lf-telefon">Telefon</label><input class="input" id="lf-telefon" name="telefon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="field" style="margin-top:16px;margin-bottom:0">
+              <label for="lf-position">Ihre Rolle</label>
+              <select class="input" id="lf-position" name="position">
+                <option value="">Bitte wählen…</option>
+                <option>Geschäftsführung</option>
+                <option>Einkauf</option>
+                <option>Produktions-/Fertigungsleitung</option>
+                <option>Prozess-/Fertigungsplanung</option>
+                <option>Qualitätssicherung</option>
+                <option>Sonstige</option>
+              </select>
+            </div>
+            <label class="consent"><input type="checkbox" id="lf-consent" required> Ich willige ein, dass meine Angaben zur Kontaktaufnahme und für die Auswertung verarbeitet werden. Details in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
+            <div class="honey"><label>Bitte freilassen <input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn btn--primary btn--lg btn--block mt-2" type="submit" id="lf-submit">
+              Vollständige Auswertung zuschicken
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
         </div>
 
-        <!-- LEAD FORM -->
-        <div class="lead-card">
-          <div id="leadFormWrap">
-            <h3 style="margin-top:0">Vollständige Auswertung als PDF erhalten</h3>
-            <p class="text-muted">Wir senden Ihnen die detaillierte Auswertung als PDF — und Herr Specker meldet sich für eine unverbindliche Einschätzung.</p>
-            <form id="leadForm" novalidate>
-              <div class="lead-grid">
-                <div class="field" style="margin-bottom:0"><label for="lf-vorname">Vorname*</label><input class="input" id="lf-vorname" name="vorname" autocomplete="given-name" required></div>
-                <div class="field" style="margin-bottom:0"><label for="lf-nachname">Nachname*</label><input class="input" id="lf-nachname" name="nachname" autocomplete="family-name" required></div>
-              </div>
-              <div class="field" style="margin-top:16px;margin-bottom:0"><label for="lf-firma">Firma*</label><input class="input" id="lf-firma" name="firma" autocomplete="organization" required></div>
-              <div class="lead-grid" style="margin-top:16px">
-                <div class="field" style="margin-bottom:0"><label for="lf-email">E-Mail*</label><input class="input" id="lf-email" name="email" type="email" autocomplete="email" required></div>
-                <div class="field" style="margin-bottom:0"><label for="lf-telefon">Telefon</label><input class="input" id="lf-telefon" name="telefon" type="tel" autocomplete="tel"></div>
-              </div>
-              <div class="field" style="margin-top:16px;margin-bottom:0">
-                <label for="lf-position">Ihre Rolle</label>
-                <select class="input" id="lf-position" name="position">
-                  <option value="">Bitte wählen…</option>
-                  <option>Geschäftsführung</option>
-                  <option>Einkauf</option>
-                  <option>Produktions-/Fertigungsleitung</option>
-                  <option>Prozess-/Fertigungsplanung</option>
-                  <option>Qualitätssicherung</option>
-                  <option>Sonstige</option>
-                </select>
-              </div>
-              <label class="consent"><input type="checkbox" id="lf-consent" required> Ich willige ein, dass meine Angaben zur Kontaktaufnahme und für die Auswertung verarbeitet werden. Details in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
-              <div class="honey"><label>Bitte freilassen <input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
-              <button class="btn btn--primary btn--lg btn--block mt-2" type="submit" id="lf-submit">
-                PDF-Auswertung erstellen
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
-              </button>
-              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-            </form>
-          </div>
-
-          <div class="lead-success" id="leadSuccess">
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
-            <h3>Danke! Ihre Auswertung ist unterwegs.</h3>
-            <p class="text-muted">Ihr PDF wurde erstellt und heruntergeladen. Herr Specker meldet sich zeitnah bei Ihnen.</p>
-            <button class="btn btn--ghost mt-2" type="button" id="pdfAgain">PDF erneut herunterladen</button>
-          </div>
+        <div class="lead-success" id="leadSuccess">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+          <h3>Danke! Ihre Auswertung ist unterwegs.</h3>
+          <p class="text-muted">Ihr PDF wurde erstellt und heruntergeladen. Herr Specker meldet sich zeitnah bei Ihnen.</p>
+          <button class="btn btn--ghost mt-2" type="button" id="pdfAgain">PDF erneut herunterladen</button>
         </div>
       </div>
+
+      <p class="disclaimer mt-3">Unverbindliche Modellrechnung auf Basis branchenüblicher Richtwerte. Ersetzt keine individuelle Detailanalyse.</p>
     </div>
   </section>
 
@@ -322,8 +268,8 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="site.js"></script>
+<script src="site.js?v=8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-<script src="rechner.js" defer></script>
+<script src="rechner.js?v=8" defer></script>
 </body>
 </html>

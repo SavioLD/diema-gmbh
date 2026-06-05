@@ -1,9 +1,10 @@
 /* =====================================================================
    DIEMA — Automatisierungs-ROI-Rechner
-   Konkretes, parts-basiertes Modell (Stückkosten heute vs. automatisiert),
-   Live-Vorschau, PDF-Erzeugung (jsPDF) und Lead-Versand (Web3Forms).
-   Alle Modellwerte sind branchenübliche Richtwerte, klar als Schätzung
-   gekennzeichnet. Berechnung läuft vollständig im Browser.
+   Geführter 4-Schritt-Wizard (Kachel-Klick springt automatisch weiter).
+   Am Ende: kurze Einschätzung (Score + 3 Kennzahlen). Die vollständige
+   Auswertung kommt nach dem Ausfüllen des Formulars als gebrandetes PDF
+   (jsPDF) und der Lead geht per Web3Forms an DIEMA.
+   Modellwerte sind branchenübliche Richtwerte, klar als Schätzung markiert.
    ===================================================================== */
 (function () {
   "use strict";
@@ -62,7 +63,6 @@
     var partsYear = Math.max(1, i.teileProTag * i.arbeitstage);
     var laborPerPart = laborCostYear / partsYear;
 
-    // Ein Ausschuss-/Nacharbeitsteil kostet Materialwert + bereits investierte Bearbeitung.
     var reworkPerPart = i.materialwert + laborPerPart;
     var reworkCostYear = partsYear * (i.ausschuss / 100) * reworkPerPart;
 
@@ -86,7 +86,6 @@
     var schaden3 = annualSavings * 3;
     var capacityGainPct = Math.min(0.6, p.capacityGain * (1 + (i.schichten - 1) * 0.1));
 
-    // Score
     var m = clamp(i.mitarbeiter / 12, 0, 1);
     var a = clamp(i.ausschuss / 15, 0, 1);
     var r = (i.recruiting - 1) / 4;
@@ -127,60 +126,32 @@
     if (!arc) return;
     var len = 0;
     try { len = arc.getTotalLength(); } catch (e) { len = 0; }
-    if (!len) len = parseFloat(arc.getAttribute("stroke-dasharray")) || 295;
+    if (!len) len = parseFloat(arc.getAttribute("stroke-dasharray")) || 300;
     arc.style.strokeDasharray = len;
     if (!reduceMotion) arc.style.transition = "stroke-dashoffset .8s cubic-bezier(.22,1,.36,1)";
     arc.style.strokeDashoffset = len * (1 - score / 100);
     if (val) val.textContent = score;
   }
 
-  /* -------- UI aktualisieren -------- */
+  /* -------- Teaser-Ergebnis aktualisieren -------- */
   function update() {
     var i = readInputs();
     var r = compute(i);
     lastInputs = i; lastResult = r;
 
-    // Live-Panel
-    setGauge("gaugeArcLive", "gaugeValLive", r.score);
-    $("kpiSaveLive").textContent = eur(r.annualSavings);
-    $("kpiPerPartLive").textContent = eur2(r.savePerPart);
-    $("kpiPaybackLive").textContent = paybackText(r.paybackMonths) + " Mon.";
-    $("kpiSchadenLive").textContent = eur(r.schaden3);
-
-    // Volle Ergebnisse
     setGauge("gaugeArcBig", "gaugeValBig", r.score);
-    $("resultHeadline").textContent = headline(r.score);
-    $("resultSummary").textContent =
+    if ($("resultHeadline")) $("resultHeadline").textContent = headline(r.score);
+    if ($("resultSummary")) $("resultSummary").textContent =
       "Bei " + i.mitarbeiter + " Mitarbeiter" + (i.mitarbeiter === 1 ? "" : "n") +
-      ", " + num(r.partsYear) + " Teilen/Jahr und " + i.ausschuss + " % Ausschuss verschenken Sie rund " +
-      eur(r.annualSavings) + " pro Jahr. Die Investition amortisiert sich in ca. " + paybackText(r.paybackMonths) + " Monaten.";
-
-    $("tSave").textContent = eur(r.annualSavings);
-    $("tPayback").innerHTML = paybackText(r.paybackMonths) + ' <small>Monate</small>';
-    $("tFive").textContent = eur(Math.max(0, r.fiveYearNet));
-    $("tSchaden").textContent = eur(r.schaden3);
-    $("tCapacity").textContent = "+" + Math.round(r.capacityGainPct * 100) + " %";
-    $("tInvest").textContent = "ab " + eur(r.investTotal);
-    $("tPartsYear").textContent = num(r.partsYear);
-    $("tCostPerPart").textContent = eur2(r.costPerPartNow) + " → " + eur2(r.costPerPartAfter);
-    $("tSavePerPart").textContent = eur2(r.savePerPart);
-
-    $("bLabor").textContent = eur(r.laborCostYear);
-    $("bRework").textContent = eur(r.reworkCostYear);
-    $("bSaveLabor").textContent = "+ " + eur(r.savedLabor);
-    $("bSaveScrap").textContent = "+ " + eur(r.savedScrap);
-    $("bOpex").textContent = "– " + eur(r.opex);
-    $("bNet").textContent = eur(r.annualSavings);
-
-    // Methodik dynamisch
-    var mL = $("mLabor"), mS = $("mScrap"), mI = $("mInvest");
-    if (mL) mL.textContent = "Automation übernimmt ca. " + Math.round(r.preset.laborReduction * 100) + " % der manuellen " + r.processLabel + "-Arbeit; der Rest bleibt für Bedienung & Rüsten.";
-    if (mS) mS.textContent = "Automation senkt Ausschuss/Nacharbeit um ca. " + Math.round(r.preset.scrapFactor * 100) + " %.";
-    if (mI) mI.textContent = "Investitionsrahmen ab " + eur(r.preset.invest) + " je Roboterzelle (" + r.cells + " Zelle" + (r.cells === 1 ? "" : "n") + " angesetzt).";
+      " und " + num(r.partsYear) + " Teilen/Jahr verschenken Sie rund " + eur(r.annualSavings) +
+      " pro Jahr. Die Investition amortisiert sich in ca. " + paybackText(r.paybackMonths) + " Monaten.";
+    if ($("tSaveYear")) $("tSaveYear").textContent = eur(r.annualSavings);
+    if ($("tPaybackTease")) $("tPaybackTease").innerHTML = paybackText(r.paybackMonths) + ' <small>Monate</small>';
+    if ($("tSavePartTease")) $("tSavePartTease").textContent = eur2(r.savePerPart);
   }
 
   /* -------- Wizard -------- */
-  var current = 1, TOTAL = 3;
+  var current = 1, TOTAL = 4, advTimer = null;
   function showStep(n, focusHeading) {
     current = clamp(n, 1, TOTAL);
     document.querySelectorAll(".step").forEach(function (s) {
@@ -206,7 +177,7 @@
     $("ergebnis").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
 
-  /* -------- Lead-Text + PDF -------- */
+  /* -------- Lead-Text + PDF (vollständige Auswertung) -------- */
   function inputLines(i, r) {
     return [
       ["Prozess", r.processLabel],
@@ -243,7 +214,6 @@
     y += 6; doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(muted[0], muted[1], muted[2]);
     doc.text((contact.vorname + " " + contact.nachname) + (contact.position ? " · " + contact.position : ""), M, y);
 
-    // Score-Box
     y += 7;
     doc.setFillColor(236, 247, 250); doc.roundedRect(M, y, W - 2 * M, 24, 3, 3, "F");
     doc.setTextColor(teal[0], teal[1], teal[2]); doc.setFont("helvetica", "bold"); doc.setFontSize(28);
@@ -256,7 +226,6 @@
     doc.text("Automatisierungs-Score für " + r.processLabel, M + 32, y + 18);
     y += 24 + 6;
 
-    // Stückkosten-Zeile (konkret)
     doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.setTextColor(good[0], good[1], good[2]);
     doc.text("Kosten je Teil: " + eur2(r.costPerPartNow) + "  ->  " + eur2(r.costPerPartAfter)
       + "   (Ersparnis " + eur2(r.savePerPart) + "/Teil)", M, y);
@@ -264,7 +233,6 @@
     doc.text("Teile pro Jahr: " + num(r.partsYear), W - M, y, { align: "right" });
     y += 8;
 
-    // KPI-Kacheln (6)
     var kpis = [
       ["Einsparpotenzial / Jahr", eur(r.annualSavings), good],
       ["Amortisationszeit", paybackText(r.paybackMonths) + " Monate", dark],
@@ -286,7 +254,6 @@
     });
     y = ky + 3 * (rowH + 4) + 6;
 
-    // Aufschlüsselung
     doc.setFont("helvetica", "bold"); doc.setFontSize(11); doc.setTextColor(dark[0], dark[1], dark[2]);
     doc.text("So entsteht Ihr Einsparpotenzial", M, y); y += 6;
     var rows = [
@@ -308,7 +275,6 @@
       y += 6.6;
     });
 
-    // Eingaben
     y += 4;
     doc.setFont("helvetica", "bold"); doc.setFontSize(11); doc.setTextColor(dark[0], dark[1], dark[2]);
     doc.text("Ihre Angaben", M, y); y += 6;
@@ -451,10 +417,23 @@
     form.addEventListener("input", update);
     form.addEventListener("change", update);
 
+    // Auto-Advance: Klick auf eine Prozess-/Ziel-Kachel springt automatisch weiter
+    function bindAuto(name, toStep) {
+      document.querySelectorAll('input[name="' + name + '"]').forEach(function (inp) {
+        var tile = inp.closest(".choice");
+        if (!tile) return;
+        tile.addEventListener("click", function () {
+          window.clearTimeout(advTimer);
+          advTimer = window.setTimeout(function () { if (current === toStep - 1) showStep(toStep, true); }, 300);
+        });
+      });
+    }
+    bindAuto("prozess", 2);
+    bindAuto("ziel", 3);
+
     $("btnNext").addEventListener("click", function () { showStep(current + 1, true); });
     $("btnPrev").addEventListener("click", function () { showStep(current - 1, true); });
     $("btnResult").addEventListener("click", revealResults);
-    $("panelCta").addEventListener("click", function (e) { e.preventDefault(); revealResults(); });
     document.querySelectorAll("#progress li").forEach(function (li) {
       li.addEventListener("click", function () { showStep(parseInt(li.dataset.step, 10), true); });
     });

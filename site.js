@@ -10,7 +10,7 @@
   /* -------- Zentrale Stammdaten -------- */
   const SITE = {
     company: "DIEMA GmbH",
-    brandSub: "SM-Stahl · Oberflächentechnik",
+    brandSub: "Eine Marke der DIEMA GmbH",
     person: "Herr Specker",
     email: "info@diemagmbh.de",
     phoneLabel: "+49 (0) 7467 91030-32",
@@ -99,15 +99,14 @@
   function brandMark(cls) {
     const id = "bm" + Math.random().toString(36).slice(2, 7);
     return (
-      '<svg class="' + cls + '" viewBox="0 0 48 48" role="img" aria-label="DIEMA Logo">' +
+      '<svg class="' + cls + '" viewBox="0 0 48 48" role="img" aria-label="SM-Stahl Logo">' +
         '<defs><linearGradient id="' + id + '" x1="0" y1="0" x2="1" y2="1">' +
           '<stop offset="0" stop-color="#18B9D6"/><stop offset="0.55" stop-color="#0E94AE"/><stop offset="1" stop-color="#075E70"/>' +
         '</linearGradient></defs>' +
         '<rect width="48" height="48" rx="13" fill="url(#' + id + ')"/>' +
-        '<rect x="12" y="17" width="24" height="3.2" rx="1.6" fill="#fff" opacity="0.95"/>' +
-        '<rect x="12" y="23.4" width="17" height="3.2" rx="1.6" fill="#fff" opacity="0.8"/>' +
-        '<rect x="12" y="29.8" width="21" height="3.2" rx="1.6" fill="#fff" opacity="0.9"/>' +
-        '<circle cx="35.5" cy="14.5" r="3.1" fill="#BFF0FB"/>' +
+        '<text x="24" y="25.5" text-anchor="middle" font-family="Sora, system-ui, sans-serif" font-weight="800" font-size="20" letter-spacing="-1" fill="#fff">SM</text>' +
+        '<rect x="9" y="30" width="30" height="9" rx="2.2" fill="#fff" opacity="0.94"/>' +
+        '<text x="24" y="36.7" text-anchor="middle" font-family="Sora, system-ui, sans-serif" font-weight="700" font-size="6.6" letter-spacing="1.6" fill="#0A4250">STAHL</text>' +
       "</svg>"
     );
   }
@@ -144,7 +143,7 @@
         '<div class="shell header-inner">' +
           '<a class="brand" href="index.html" aria-label="' + SITE.company + ' – Startseite">' +
             brandMark("brand__mark") +
-            "<span><span class=\"brand__name\">DIEMA</span>" +
+            "<span><span class=\"brand__name\">SM-Stahl</span>" +
             '<span class="brand__sub">' + SITE.brandSub + "</span></span>" +
           "</a>" +
           '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Menü öffnen">' +
@@ -182,7 +181,7 @@
         '<div class="shell footer-top">' +
           '<div class="footer-brand">' +
             '<a class="brand" href="index.html" style="color:#fff">' + brandMark("brand__mark") +
-              '<span><span class="brand__name" style="color:#fff">DIEMA</span>' +
+              '<span><span class="brand__name" style="color:#fff">SM-Stahl</span>' +
               '<span class="brand__sub" style="color:#9FBFC8">' + SITE.brandSub + "</span></span></a>" +
             '<p style="margin-top:1rem">Oberflächenbearbeitung von Metall &amp; innovative Steuerungs&shy;technik für automatische Anlagen — aus einer Hand. Über 60 Jahre Erfahrung.</p>' +
             '<ul class="footer-contact">' +
@@ -212,7 +211,7 @@
     const header = document.getElementById("siteHeader");
     const toggle = header.querySelector(".nav-toggle");
     const menuButtons = header.querySelectorAll(".nav-item.has-menu > .nav-link");
-    const mq = window.matchMedia("(max-width: 960px)");
+    const mq = window.matchMedia("(max-width: 1200px)");
 
     // Mobile-Menü
     toggle.addEventListener("click", function () {
