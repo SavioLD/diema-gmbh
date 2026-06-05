@@ -38,7 +38,6 @@ steuerungstechnik.html      Elektrotechnik: Steuerungstechnik
 schaltanlagenbau.html       Elektrotechnik: Schaltanlagenbau
 rechner.html                ⭐ Automatisierungs-ROI-Rechner (Lead-Tool)
 ansprechpartner.html        Service & Vertrieb (inkl. 24-Std-Notfall-Hotline)
-messen.html                 Messen & Termine
 jobs.html                   Jobs & Karriere
 kontakt.html                Kontaktformular (Web3Forms)
 anfahrt.html                Anfahrt / Route

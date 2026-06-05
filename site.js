@@ -43,13 +43,7 @@
         { label: "Schaltanlagenbau", href: "schaltanlagenbau.html", desc: "Schaltschränke & Schaltanlagen" },
       ],
     },
-    {
-      label: "Service & Vertrieb",
-      children: [
-        { label: "Ansprechpartner", href: "ansprechpartner.html", desc: "Ihr direkter Kontakt" },
-        { label: "Messen & Termine", href: "messen.html", desc: "Wo Sie uns treffen" },
-      ],
-    },
+    { label: "Service & Vertrieb", href: "ansprechpartner.html" },
     {
       label: "Unternehmen",
       children: [
@@ -84,7 +78,6 @@
       title: "Unternehmen",
       links: [
         { label: "Ansprechpartner", href: "ansprechpartner.html" },
-        { label: "Messen & Termine", href: "messen.html" },
         { label: "Jobs & Karriere", href: "jobs.html" },
         { label: "Kontakt", href: "kontakt.html" },
         { label: "Anfahrt", href: "anfahrt.html" },
@@ -98,9 +91,9 @@
   const ICON = {
     chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>',
-    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
-    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
-    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    phone: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+    mail: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+    pin: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
   };
 
   function brandMark(cls) {
@@ -202,7 +195,7 @@
           cols +
         "</div>" +
         '<div class="shell footer-bottom">' +
-          "<span>© " + new Date().getFullYear() + " " + SITE.company + " · Betriebsstätte Oberflacht · " + SITE.region + "</span>" +
+          "<span>© " + new Date().getFullYear() + " " + SITE.company + " · Seitingen-Oberflacht &amp; Neuhausen ob Eck · " + SITE.region + "</span>" +
           '<span class="footer-bottom__links">' +
             '<a href="impressum.html">Impressum</a>' +
             '<a href="datenschutz.html">Datenschutz</a>' +

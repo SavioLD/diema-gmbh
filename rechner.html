@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Automatisierungs-ROI-Rechner — DIEMA GmbH · SM-Stahl</title>
-<meta name="description" content="Berechnen Sie in 2 Minuten, was manuelles Schleifen, Polieren oder Entgraten Sie pro Jahr kostet: Einsparpotenzial, Amortisationszeit und Automatisierungs-Score inklusive PDF-Auswertung. Kostenlos von DIEMA / SM-Stahl." />
+<meta name="description" content="Berechnen Sie in 2 Minuten, was manuelles Schleifen, Polieren oder Entgraten Sie pro Jahr und pro Teil kostet: Einsparpotenzial, Kosten je Teil, Amortisationszeit und Automatisierungs-Score inklusive PDF-Auswertung." />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="https://www.diemagmbh.de/rechner.html" />
 <meta property="og:title" content="Automatisierungs-ROI-Rechner — DIEMA GmbH" />
-<meta property="og:description" content="Was kostet Sie Handarbeit Jahr für Jahr? Einsparpotenzial, Amortisation & Score in 2 Minuten." />
+<meta property="og:description" content="Was kostet Sie Handarbeit Jahr für Jahr und je Teil? Einsparpotenzial, Amortisation & Score in 2 Minuten." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -31,8 +31,8 @@
   <header class="page-hero">
     <div class="shell">
       <span class="eyebrow">Automatisierungs-ROI-Rechner</span>
-      <h1>Was kostet Sie Handarbeit — Jahr für Jahr?</h1>
-      <p class="lead">Schleifen, Polieren und Entgraten von Hand bindet teure Fachkräfte, erzeugt Ausschuss und bremst Ihre Kapazität. Beantworten Sie ein paar Fragen und sehen Sie sofort Ihr Einsparpotenzial, die Amortisationszeit und Ihren Automatisierungs-Score — auf Wunsch als PDF.</p>
+      <h1>Was kostet Sie Handarbeit — pro Jahr und pro Teil?</h1>
+      <p class="lead">Schleifen, Polieren und Entgraten von Hand bindet teure Fachkräfte, erzeugt Ausschuss und bremst Ihre Kapazität. Beantworten Sie ein paar Fragen und sehen Sie sofort Ihre Stückkosten heute vs. automatisiert, das Einsparpotenzial, die Amortisationszeit und Ihren Automatisierungs-Score — auf Wunsch als PDF.</p>
     </div>
   </header>
 
@@ -44,7 +44,7 @@
         <form class="wizard" id="wizard" novalidate>
           <ol class="wizard__progress" id="progress">
             <li data-step="1" aria-current="step"><span>1</span><span class="lbl">Prozess</span></li>
-            <li data-step="2"><span>2</span><span class="lbl">Team &amp; Kosten</span></li>
+            <li data-step="2"><span>2</span><span class="lbl">Team &amp; Stückzahl</span></li>
             <li data-step="3"><span>3</span><span class="lbl">Qualität</span></li>
           </ol>
 
@@ -56,11 +56,11 @@
               <p class="step__hint">Wählen Sie das Verfahren, das Sie heute überwiegend von Hand erledigen.</p>
               <div class="choice-grid" role="radiogroup" aria-label="Prozess">
                 <label class="choice"><input type="radio" name="prozess" value="schleifen" checked>
-                  <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/></svg><span class="choice__t">Schleifen</span><span class="choice__d">Bänder & Kontaktscheiben</span></span></label>
+                  <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/></svg><span class="choice__t">Schleifen</span><span class="choice__d">Bänder &amp; Kontaktscheiben</span></span></label>
                 <label class="choice"><input type="radio" name="prozess" value="polieren">
                   <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 4.8L19 9l-3.8 3.3L16 18l-4-2.6L8 18l.8-5.7L5 9l4.8-1.2z"/></svg><span class="choice__t">Polieren</span><span class="choice__d">Hochglanz</span></span></label>
                 <label class="choice"><input type="radio" name="prozess" value="entgraten">
-                  <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l8-8 4 4-8 8H3v-4z"/><path d="M14 6l4 4 3-3-4-4z"/></svg><span class="choice__t">Entgraten</span><span class="choice__d">& Gussputzen</span></span></label>
+                  <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l8-8 4 4-8 8H3v-4z"/><path d="M14 6l4 4 3-3-4-4z"/></svg><span class="choice__t">Entgraten</span><span class="choice__d">&amp; Gussputzen</span></span></label>
                 <label class="choice"><input type="radio" name="prozess" value="scotchen">
                   <span class="choice__box"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l-2 16M12 4l-2 16M18 4l-2 16"/></svg><span class="choice__t">Scotchen</span><span class="choice__d">Edelstahl-Finish</span></span></label>
                 <label class="choice"><input type="radio" name="prozess" value="gemischt">
@@ -75,7 +75,7 @@
                 <label class="choice"><input type="radio" name="ziel" value="kosten">
                   <span class="choice__box"><span class="choice__t">Kosten senken</span><span class="choice__d">Stückkosten runter</span></span></label>
                 <label class="choice"><input type="radio" name="ziel" value="qualitaet">
-                  <span class="choice__box"><span class="choice__t">Qualität sichern</span><span class="choice__d">konstant & reproduzierbar</span></span></label>
+                  <span class="choice__box"><span class="choice__t">Qualität sichern</span><span class="choice__d">konstant &amp; reproduzierbar</span></span></label>
                 <label class="choice"><input type="radio" name="ziel" value="entlastung">
                   <span class="choice__box"><span class="choice__t">Mitarbeiter entlasten</span><span class="choice__d">harte Handarbeit reduzieren</span></span></label>
               </div>
@@ -83,11 +83,11 @@
 
             <!-- STEP 2 -->
             <fieldset class="step" data-step="2" style="border:0;padding:0;margin:0">
-              <legend style="padding:0"><h2>Ihr Team &amp; Ihre Kosten</h2></legend>
+              <legend style="padding:0"><h2>Ihr Team &amp; Ihre Stückzahl</h2></legend>
               <p class="step__hint">Richtwerte genügen — Sie können jeden Wert anpassen.</p>
 
               <div class="field">
-                <label for="mitarbeiter">Mitarbeiter in der Oberflächenbearbeitung <span class="sub">(gesamt)</span></label>
+                <label for="mitarbeiter">Mitarbeiter in der Oberflächenbearbeitung <span class="sub">(gesamt, alle Schichten)</span></label>
                 <div class="num" style="max-width:200px">
                   <button type="button" aria-label="weniger" data-step-btn="mitarbeiter" data-dir="-1">–</button>
                   <input class="input" id="mitarbeiter" type="number" inputmode="numeric" min="1" max="200" value="4" />
@@ -113,6 +113,14 @@
               </div>
 
               <div class="field">
+                <label for="teileProTag">Bearbeitete Teile pro Tag <span class="sub">(über alle Mitarbeiter)</span></label>
+                <div class="input-row">
+                  <input class="input" id="teileProTag" type="number" inputmode="numeric" min="1" max="100000" value="400" />
+                  <span class="input-suffix">Stück</span>
+                </div>
+              </div>
+
+              <div class="field">
                 <label>Schichtbetrieb</label>
                 <div class="choice-grid" role="radiogroup" aria-label="Schichten" style="grid-template-columns:repeat(3,1fr);max-width:380px">
                   <label class="choice"><input type="radio" name="schichten" value="1"><span class="choice__box" style="text-align:center"><span class="choice__t">1 Schicht</span></span></label>
@@ -125,7 +133,7 @@
             <!-- STEP 3 -->
             <fieldset class="step" data-step="3" style="border:0;padding:0;margin:0">
               <legend style="padding:0"><h2>Qualität &amp; Personal</h2></legend>
-              <p class="step__hint">Zwei Faktoren, die in der Handarbeit besonders ins Geld gehen.</p>
+              <p class="step__hint">Diese Angaben machen Ihre Ausschuss- und Personalkosten konkret.</p>
 
               <div class="field">
                 <label for="ausschuss">Ausschuss- &amp; Nacharbeitsquote heute</label>
@@ -134,6 +142,14 @@
                   <output class="range-out" id="ausschuss-out">6 %</output>
                 </div>
                 <div class="range-legend"><span>0 %</span><span>20 %+</span></div>
+              </div>
+
+              <div class="field">
+                <label for="materialwert">Ø Materialwert je Teil <span class="sub">(optional — macht die Ausschusskosten konkret)</span></label>
+                <div class="input-row">
+                  <input class="input" id="materialwert" type="number" inputmode="numeric" min="0" max="100000" value="0" />
+                  <span class="input-suffix">€ / Teil</span>
+                </div>
               </div>
 
               <div class="field">
@@ -146,7 +162,7 @@
               </div>
 
               <div class="notice notice--soft">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
                 <p class="mb-0">Schwer zu besetzende Stellen erhöhen Ihren wirtschaftlichen Schaden — Automatisierung entschärft Ihren Personalengpass spürbar.</p>
               </div>
             </fieldset>
@@ -173,6 +189,7 @@
             </svg>
           </div>
           <div class="kpi"><span class="kpi__label">Einsparpotenzial / Jahr</span><span class="kpi__val good" id="kpiSaveLive" aria-live="polite">– €</span></div>
+          <div class="kpi"><span class="kpi__label">Ersparnis je Teil</span><span class="kpi__val good" id="kpiPerPartLive">– €</span></div>
           <div class="kpi"><span class="kpi__label">Amortisation</span><span class="kpi__val" id="kpiPaybackLive">– Mon.</span></div>
           <div class="kpi"><span class="kpi__label">Schaden in 3 Jahren</span><span class="kpi__val danger" id="kpiSchadenLive">– €</span></div>
           <a class="btn btn--light btn--block panel-cta" id="panelCta" href="#ergebnis">Vollständige Auswertung</a>
@@ -210,6 +227,9 @@
         <div class="big-tile big-tile--danger"><div class="t">Wirtschaftlicher Schaden bei Nicht-Automatisierung (3 J.)</div><div class="v" id="tSchaden">– €</div></div>
         <div class="big-tile"><div class="t">Kapazitätsgewinn</div><div class="v" id="tCapacity">– %</div></div>
         <div class="big-tile"><div class="t">Investitionsrahmen (Richtwert)</div><div class="v" id="tInvest">– €</div></div>
+        <div class="big-tile"><div class="t">Bearbeitete Teile pro Jahr</div><div class="v" id="tPartsYear">–</div></div>
+        <div class="big-tile big-tile--good"><div class="t">Kosten je Teil: heute → automatisiert</div><div class="v" id="tCostPerPart" style="font-size:1.45rem">– € → – €</div></div>
+        <div class="big-tile big-tile--good"><div class="t">Ersparnis je Teil</div><div class="v" id="tSavePerPart">– €</div></div>
       </div>
 
       <div class="grid grid--2 mt-4" style="align-items:start">
@@ -225,7 +245,20 @@
               <tr><td>= Netto-Einsparung pro Jahr</td><td id="bNet">– €</td></tr>
             </tbody>
           </table>
-          <p class="disclaimer mt-2">Modellrechnung auf Basis branchenüblicher Richtwerte. Ersetzt keine individuelle Detailanalyse. Investitionsrahmen abhängig von Bauteil, Taktzeit und Automatisierungsgrad.</p>
+
+          <details class="mt-2">
+            <summary style="cursor:pointer;font-family:var(--font-head);font-weight:600;color:var(--brand-700)">Annahmen &amp; Methodik anzeigen</summary>
+            <ul class="checklist" style="margin-top:1rem" id="methodList">
+              <li>7,5 produktive Stunden je Mitarbeiter und Tag.</li>
+              <li id="mLabor">Automation übernimmt einen Teil der manuellen Arbeit (verfahrensabhängig).</li>
+              <li id="mScrap">Automation reduziert Ausschuss/Nacharbeit deutlich.</li>
+              <li>Ein Ausschussteil verursacht Materialwert + bereits investierte Bearbeitungskosten.</li>
+              <li>Betriebskosten der Anlage: ca. 9 % der Investition pro Jahr (Wartung, Energie, Verbrauch).</li>
+              <li id="mInvest">Investitionsrahmen je Roboterzelle, skaliert mit der Teamgröße.</li>
+            </ul>
+          </details>
+
+          <p class="disclaimer mt-2">Modellrechnung auf Basis branchenüblicher Richtwerte. Ersetzt keine individuelle Detailanalyse. Der tatsächliche Investitionsrahmen hängt von Bauteil, Taktzeit und Automatisierungsgrad ab.</p>
         </div>
 
         <!-- LEAD FORM -->
@@ -259,7 +292,7 @@
               <div class="honey"><label>Bitte freilassen <input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
               <button class="btn btn--primary btn--lg btn--block mt-2" type="submit" id="lf-submit">
                 PDF-Auswertung erstellen
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
               </button>
               <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
             </form>
