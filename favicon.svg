@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="DIEMA">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18B9D6"/>
+      <stop offset="0.55" stop-color="#0E94AE"/>
+      <stop offset="1" stop-color="#075E70"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="13" fill="url(#g)"/>
+  <rect x="12" y="17" width="24" height="3.2" rx="1.6" fill="#fff" opacity="0.95"/>
+  <rect x="12" y="23.4" width="17" height="3.2" rx="1.6" fill="#fff" opacity="0.8"/>
+  <rect x="12" y="29.8" width="21" height="3.2" rx="1.6" fill="#fff" opacity="0.9"/>
+  <circle cx="35.5" cy="14.5" r="3.1" fill="#BFF0FB"/>
+</svg>
